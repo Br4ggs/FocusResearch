@@ -4,7 +4,7 @@ import math
 class ConfidenceInterval:
 
     @staticmethod
-    def GetSampleVariance(sample: [float]) -> float:
+    def Get_sample_variance(sample: [float]) -> float:
         mean = sum(sample) / len(sample)
         sample_variance = 0
         for i in range(len(sample)):
@@ -12,10 +12,10 @@ class ConfidenceInterval:
         return sample_variance / (len(sample) - 1)
 
     @staticmethod
-    def GetSampleDeviation(sample: [float]) -> float:
-        return math.sqrt(ConfidenceInterval.GetSampleVariance(sample))
+    def Get_sample_standard_deviation(sample: [float]) -> float:
+        return math.sqrt(ConfidenceInterval.Get_sample_variance(sample))
 
     @staticmethod
-    def GetConfidenceInterval(mean: float, sample_deviation: int, sample_size: int, t_value: float) -> (float, float):
+    def Get_confidence_interval(mean: float, sample_deviation: int, sample_size: int, t_value: float) -> (float, float):
         value = t_value * (sample_deviation / math.sqrt(sample_size))
         return mean - value, mean + value
