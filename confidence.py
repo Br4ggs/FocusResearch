@@ -6,10 +6,15 @@ class ConfidenceInterval:
     @staticmethod
     def GetSampleVariance(sample: [float]) -> float:
         mean = sum(sample) / len(sample)
+        return ConfidenceInterval.GetSampleVariance(sample, mean)
+
+    @staticmethod
+    def GetSampleVariance(sample: [float], mean: float) -> float:
         sample_variance = 0
         for i in range(len(sample)):
             sample_variance += math.pow(sample[i] - mean, 2)
         return sample_variance / (len(sample) - 1)
+
 
     @staticmethod
     def GetSampleDeviation(sample: [float]) -> float:
