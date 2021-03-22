@@ -21,6 +21,6 @@ class ConfidenceInterval:
         return math.sqrt(ConfidenceInterval.Get_sample_variance(sample))
 
     @staticmethod
-    def Get_confidence_interval(mean: float, sample_deviation: int, sample_size: int, t_value: float) -> (float, float):
+    def Get_confidence_interval(mean: float, sample_deviation: int, sample_size: int, t_value: float) -> float:
         value = t_value * (sample_deviation / math.sqrt(sample_size))
-        return mean - value, mean + value
+        return value
